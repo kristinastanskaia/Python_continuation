@@ -18,27 +18,27 @@ num_2 = list_2[0]
 den_2 = list_2[1]
 
 # умножение
-multiplication_numerator = num_1 * num_2
-multiplication_denominator = den_1 * den_2
+multi_numerator = num_1 * num_2
+multi_denominator = den_1 * den_2
 
 # сложение
 if den_1 == den_2:
-    addition_numerator = num_1 + num_2
-    addition_denominator = den_1
+    add_numerator = num_1 + num_2
+    add_denominator = den_1
 else:
-    addition_denominator = (den_1 * den_2) // (
+    add_denominator = (den_1 * den_2) // (
         math.gcd(den_1, den_2))
-    addition_numerator = (num_1 * (
-            addition_denominator // den_1)) + (num_2 * (
-            addition_denominator // den_2))
+    add_numerator = (num_1 * (
+            add_denominator // den_1)) + (num_2 * (
+            add_denominator // den_2))
 
 # сокращение дробей
-nod_1 = math.gcd(multiplication_numerator, multiplication_denominator)
-nod_2 = math.gcd(addition_numerator, addition_denominator)
+nod_1 = math.gcd(multi_numerator, multi_denominator)
+nod_2 = math.gcd(add_numerator, add_denominator)
 
 print(
-    f"ПРОИЗВЕДЕНИЕ: {multiplication_numerator // nod_1}/{multiplication_denominator // nod_1}")
-print(f"CУММА: {addition_numerator // nod_2}/{addition_denominator // nod_2}")
+    f"ПРОИЗВЕДЕНИЕ: {multi_numerator // nod_1}/{multi_denominator // nod_1}")
+print(f"CУММА: {add_numerator // nod_2}/{add_denominator // nod_2}")
 print("Проверка: ")
 print((fractions.Fraction(num_1, den_1)) * (
     fractions.Fraction(num_2, den_2)))
