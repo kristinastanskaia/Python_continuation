@@ -2,22 +2,30 @@
 # числителем и знаменателем. Программа должна возвращать сумму и произведение*
 # дробей. Для проверки своего кода используйте модуль fractions.
 
-first_num = input("Введите числитель и знаменатель первого числа “a/b”: ")
-second_num = input("Введите числитель и знаменатель первого числа “a/b”: ")
+import math
+
+num_1 = input("Введите числитель и знаменатель первого числа “a/b”: ")
+num_2 = input("Введите числитель и знаменатель первого числа “a/b”: ")
 
 # list_1 = a.split("/")
-first_list = [int(x) for x in first_num.split("/")]
-second_list = [int(x) for x in second_num.split("/")]
+list_1 = [int(x) for x in num_1.split("/")]
+list_2 = [int(x) for x in num_2.split("/")]
 
 # умножение
-multiplication_numerator = first_list[0] * second_list[0]
-multiplication_denominator = first_list[1] * second_list[1]
+multiplication_numerator = list_1[0] * list_2[0]
+multiplication_denominator = list_1[1] * list_2[1]
 
-# сложеине
-if first_list[1] == second_list[1]:
-    addition = first_list[0] + second_list[0]
+# сложение
+if list_1[1] == list_2[1]:
+    addition_numerator = list_1[0] + list_2[0]
+    addition_denominator = list_1[1]
 else:
-    addition == 1
+    addition_denominator = (list_1[1] * list_2[1]) // (
+        math.gcd(list_1[1], list_2[1]))
+    addition_numerator = (list_1[0] * (
+            addition_denominator // list_1[1])) + (list_2[0] * (
+            addition_denominator // list_2[1]))
 
-print(f"{multiplication_numerator}/{multiplication_denominator}")
-print(f"{addition}/{first_list[1]}")
+print(
+    f"ПРОИЗВЕДЕНИЕ: {multiplication_numerator}/{multiplication_denominator}")
+print(f"CУММА: {addition_numerator}/{addition_denominator}")
