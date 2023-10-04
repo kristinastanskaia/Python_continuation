@@ -26,11 +26,9 @@ if den_1 == den_2:
     add_numerator = num_1 + num_2
     add_denominator = den_1
 else:
-    add_denominator = (den_1 * den_2) // (
-        math.gcd(den_1, den_2))
-    add_numerator = (num_1 * (
-            add_denominator // den_1)) + (num_2 * (
-            add_denominator // den_2))
+    add_denominator = (den_1 * den_2) // (math.gcd(den_1, den_2))
+    add_numerator = (num_1 * (add_denominator // den_1)) + (
+                num_2 * (add_denominator // den_2))
 
 # сокращение дробей
 nod_1 = math.gcd(multi_numerator, multi_denominator)
