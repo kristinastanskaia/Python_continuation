@@ -1,6 +1,7 @@
 # 2. В большой текстовой строке подсчитать количество встречаемых слов и
 # вернуть 10 самых частых. Не учитывать знаки препинания и регистр символов.
 # За основу возьмите любую статью из википедии или из документации к языку.
+import re
 
 text = "Добрый день! Я впечатлена вашей компанией и интересными задачами, " \
        "которые вы решаете! Мой опыт в управлении проектами, способность " \
@@ -10,18 +11,16 @@ text = "Добрый день! Я впечатлена вашей компани
        " курс «Тестирование ПО» и приобрела ключевые знания и практический" \
        " опыт в области тестирования программного обеспечения. С нетерпением " \
        "ожидаю возможности познакомиться и стать частью вашей команды!"
-new_text = text.replace(".", "")
-new_text = new_text.lower()
+
+text = re.sub(r'[^\w\s]', '', text)
+new_text = text.lower()
 new_text = new_text.split()
 new_dict = dict()
-print(new_text)
 for i in set(new_text):
     count_i = new_text.count(i)
     new_dict[i] = count_i
-
 sort_dict = dict(
     sorted(new_dict.items(), key=lambda item: item[1], reverse=True))
-print(sort_dict)
 count = 0
 for key, value in sort_dict.items():
     if count < 10:
