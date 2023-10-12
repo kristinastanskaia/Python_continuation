@@ -106,9 +106,9 @@ hike = {
 # элементами. В результирующем списке не должно быть дубликатов.
 # [1, 2, 3, 1, 2] -> [1, 2]
 
-my_list = [2, 4, 2, 3, 3, 0, 16, 3, 0]
-new_list = []
-for i in set(my_list):
-    if my_list.count(i) > 1:
-        new_list.append(i)
-print(new_list)
+# my_list = [2, 4, 2, 3, 3, 0, 16, 3, 0]
+# new_list = []
+# for i in set(my_list):
+#     if my_list.count(i) > 1:
+#         new_list.append(i)
+# print(new_list)
