@@ -112,3 +112,32 @@ hike = {
 #     if my_list.count(i) > 1:
 #         new_list.append(i)
 # print(new_list)
+
+text = "Добрый день! Я впечатлена вашей компанией и интересными задачами, " \
+       "которые вы решаете! Мой опыт в управлении проектами, способность " \
+       "эффективно использовать ресурсы и достигать целей стали неотъемлемой " \
+       "частью моей профессиональной истории. Мне нравится изучать новые " \
+       "области и преодолевать вызовы, поэтому недавно я успешно завершила" \
+       " курс «Тестирование ПО» и приобрела ключевые знания и практический" \
+       " опыт в области тестирования программного обеспечения. С нетерпением " \
+       "ожидаю возможности познакомиться и стать частью вашей команды!"
+new_text = text.replace(".", "")
+new_text = new_text.lower()
+new_text = new_text.split()
+new_dict = dict()
+print(new_text)
+for i in set(new_text):
+    count_i = new_text.count(i)
+    new_dict[i] = count_i
+
+sort_dict = dict(
+    sorted(new_dict.items(), key=lambda item: item[1], reverse=True))
+print(sort_dict)
+count = 0
+for key, value in sort_dict.items():
+    if count < 10:
+        print(f'Слово "{key}", {value} раз')
+        count += 1
+    else:
+        break
+
