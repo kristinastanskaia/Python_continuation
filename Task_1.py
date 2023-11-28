@@ -2,11 +2,9 @@
 # различных целых чисел. Первый список ваш лотерейный билет.
 # Второй список содержит список чисел, которые выпали в лотерею.
 # Вам необходимо определить и вывести количество совпадающих чисел в этих
-# двух списках.
-
-# Напишите класс LotteryGame, который будет иметь метод compare_lists,
-# который будет сравнивать числа из вашего билета из list1 со списком
-# выпавших чисел list2
+# двух списках. Напишите класс LotteryGame, который будет иметь метод
+# compare_lists, который будет сравнивать числа из вашего билета из list1
+# со списком выпавших чисел list2.
 
 import logging
 import argparse
@@ -30,13 +28,13 @@ class LotteryGame:
         for i in self.dropped_nums:
             if i in self.user_list:
                 result_list.append(i)
-        return f"Совпадающие числа: {result_list}\nКоличество совпадающих" \
+        return f"Совпадающие числа: {result_list}\nКоличество совпадающих " \
                f"чисел: {len(result_list)}"
 
 
 def parser():
     """
-    Парсер агрумента (список пользовтельских чисел)
+    Парсер агрумента (список пользовательских чисел)
     :return:
     """
     parcer = argparse.ArgumentParser()
@@ -52,7 +50,7 @@ logging.basicConfig(level=logging.INFO, filename="lottery_logs.log",
                     filemode="a",
                     format=FORMAT, encoding="utf-8")
 
-dropped_nums = [9, 5, 6, 12, 14, 22, 17, 41, 8, 3]
+dropped_nums = [10, 5, 8, 12, 14, 21, 17, 40, 8, 5]
 droppedlist_len = len(dropped_nums)
 
 try:
@@ -73,4 +71,4 @@ try:
             f" {droppedlist_len}")
 
 except ValueError:
-    logging.error(f"Некорректный ввод, пожалуйста введите только цифры! ")
+    logging.error(f"Некорректный ввод, пожалуйста, введите только цифры!")
